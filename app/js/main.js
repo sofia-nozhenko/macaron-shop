@@ -37,9 +37,9 @@ gsap.to(".macaron-text", {
     ease: "none",
 });
 
-const collageItems = document.querySelectorAll(".bundle-item");
+const bundleItems = document.querySelectorAll(".bundle-item");
 
-collageItems.forEach((item, index) => {
+bundleItems.forEach((item, index) => {
     gsap.from(item, {
         scrollTrigger: {
             trigger: item,
@@ -48,6 +48,36 @@ collageItems.forEach((item, index) => {
         y: 100,
         duration: 1,
         ease: "power1.out",
-        delay: index * 0.3, // задержка для каждого элемента
+        delay: index * 0.2, // задержка для каждого элемента
+    });
+});
+
+const setItems = document.querySelectorAll(".set");
+
+setItems.forEach((item, index) => {
+    gsap.from(item, {
+        scrollTrigger: {
+            trigger: item,
+        },
+        autoAlpha: 0,
+        x: 100,
+        duration: 1,
+        ease: "power1.out",
+        delay: index * 0.2, // задержка для каждого элемента
+    });
+});
+
+const careItems = document.querySelectorAll(".care");
+
+careItems.forEach((item, index) => {
+    gsap.from(item, {
+        scrollTrigger: {
+            trigger: item,
+        },
+        autoAlpha: 0,
+        y: 100,
+        duration: 1,
+        ease: "power1.out",
+        delay: index * 0.4, // задержка для каждого элемента
     });
 });

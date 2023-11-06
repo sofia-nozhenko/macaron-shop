@@ -117,7 +117,9 @@ ul,
 h1,
 h2,
 h3,
-h4 {
+h4,
+h5,
+h6 {
     margin: 0;
     padding: 0;
 }
@@ -288,6 +290,7 @@ header section:last-child {
         font-family: $ff1;
         font-size: 18px;
         font-weight: 400;
+        min-height: 56px;
     }
 }
 .text-wrapp::before {
@@ -418,9 +421,6 @@ header section:last-child {
 // Holidays
 
 .holidays {
-    .holidays-title {
-        margin-bottom: 46px;
-    }
     img {
         width: 60px;
         height: 60px;
@@ -463,23 +463,24 @@ header section:last-child {
 
 // Sets
 
-.sets-title {
-    margin-bottom: 42px;
+.set-gap {
+    row-gap: 35px;
 }
-
-// .set-gap {
-//     column-gap: 30px;
-// }
 .set {
     border-radius: 5px;
     border: 1px solid #ededf0;
     background: #fff;
     .set-wrapp {
         .img-wrapp {
+            overflow: hidden;
             img {
                 width: 100%;
                 height: 100%;
+                transition: all 1s ease;
             }
+        }
+        .img-wrapp img:hover {
+            transform: scale(1.2);
         }
 
         h4 {
@@ -519,5 +520,118 @@ header section:last-child {
             padding: 12px 21px;
             border-left: 1px solid #ededf0;
         }
+    }
+}
+
+.set-btn a {
+    border: 1px solid #4e9dd3;
+    border-radius: 3px;
+    color: $c1;
+    font-size: 14px;
+    font-weight: 600;
+    padding: 18px 0;
+    width: 293px;
+    transition: all 1s ease;
+}
+
+.set-btn a:hover {
+    background-color: #4e9dd3;
+    color: #fff;
+}
+
+.title-margin {
+    margin-bottom: 40px;
+}
+
+// Care
+
+.care-wrapp {
+    h4 {
+        font-size: 18px;
+        font-weight: 600;
+        color: $c1;
+        margin-top: 29px;
+    }
+    p {
+        font-size: 14px;
+        font-weight: 400;
+        font-family: $ff1;
+        opacity: 0.8;
+        margin-top: 11px;
+    }
+}
+
+.care-section {
+    padding-bottom: 70px;
+}
+
+.care-wrapp {
+    .img-wrapp {
+        overflow: hidden;
+    }
+    .img-wrapp img {
+        transition: all 1s ease;
+    }
+    .img-wrapp img:hover {
+        transform: scale(1.2);
+    }
+}
+
+// Footer
+
+footer {
+    padding: 58px;
+    background-color: #ebedee;
+    .about-item {
+        img {
+            width: 30px;
+            height: 30px;
+        }
+        h5 {
+            font-size: 12px;
+            font-family: $ff1;
+            font-weight: 400;
+            color: $c1;
+            margin-top: 15px;
+        }
+    }
+}
+
+.copyright-wrapp {
+    margin-top: 54px;
+    p {
+        opacity: 0.7;
+        font-size: 12px;
+        font-family: $ff1;
+        font-weight: 400;
+    }
+}
+
+.footer-menu {
+    .contact-wrapp {
+        margin-bottom: 70px;
+    }
+    h6 {
+        font-family: $ff1;
+        font-size: 16px;
+        text-transform: uppercase;
+        font-weight: 600;
+        color: $c1;
+    }
+    ul {
+        li {
+            margin-top: 20px;
+            a {
+                font-size: 14px;
+                font-weight: 400;
+                color: $c1;
+            }
+        }
+    }
+    p {
+        font-size: 14px;
+        font-family: $ff1;
+        font-weight: 400;
+        color: $c1;
     }
 }
