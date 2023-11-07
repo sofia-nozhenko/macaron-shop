@@ -15,7 +15,7 @@ const app = "app/",
 
 const config = {
     app: {
-        html: app + "pug/index.pug",
+        html: app + "pug/**.pug",
         style: app + "scss/*.scss",
         js: app + "js/main.js",
         img: app + "img/**/*.*",

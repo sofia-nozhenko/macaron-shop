@@ -81,3 +81,23 @@ careItems.forEach((item, index) => {
         delay: index * 0.4, // задержка для каждого элемента
     });
 });
+
+const kitItems = document.querySelectorAll(".kit-item ");
+kitItems.forEach((item, index) => {
+    gsap.from(item, {
+        scrollTrigger: {
+            trigger: item,
+        },
+        autoAlpha: 0,
+        y: 100,
+        duration: 1,
+        ease: "power1.out",
+        delay: index * 0.5, // задержка для каждого элемента
+    });
+});
+
+gsap.to("#bike", {
+    scrollTrigger: {},
+    duration: 3,
+    x: 500,
+});
