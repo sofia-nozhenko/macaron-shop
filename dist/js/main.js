@@ -101,3 +101,10 @@ gsap.to("#bike", {
     duration: 3,
     x: 500,
 });
+
+gsap.to(".contact-img", {
+    scrollTrigger: {},
+    duration: 3,
+    x: 0,
+    rotate: 360,
+});
