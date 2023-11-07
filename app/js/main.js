@@ -108,3 +108,32 @@ gsap.to(".contact-img", {
     x: 0,
     rotate: 360,
 });
+
+const offerItemsLeft = document.querySelectorAll(".offer-wrapp_top"),
+    offerItemsRight = document.querySelectorAll(".offer-wrapp_bottom ");
+
+offerItemsLeft.forEach((item, index) => {
+    gsap.from(item, {
+        scrollTrigger: {
+            trigger: item,
+        },
+        autoAlpha: 0,
+        y: -100,
+        duration: 1,
+        ease: "power1.out",
+        delay: index * 0.3, // задержка для каждого элемента
+    });
+});
+
+offerItemsRight.forEach((item, index) => {
+    gsap.from(item, {
+        scrollTrigger: {
+            trigger: item,
+        },
+        autoAlpha: 0,
+        y: 100,
+        duration: 1,
+        ease: "power1.out",
+        delay: index * 0.3, // задержка для каждого элемента
+    });
+});
