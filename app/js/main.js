@@ -137,3 +137,92 @@ offerItemsRight.forEach((item, index) => {
         delay: index * 0.3, // задержка для каждого элемента
     });
 });
+
+// Validation
+
+// Method add
+$.validator.addMethod(
+    "regex",
+    function (value, element, regexp) {
+        let regExsp = new RegExp(regexp);
+        return this.optional(element) || regExsp.test(value);
+    },
+    "please,check ypur input"
+);
+
+$(".main-form").validate({
+    rules: {
+        firstName: {
+            required: true,
+            regex: "[A-Za-z]{1,26}",
+        },
+        phoneNumber: {
+            required: true,
+            digits: true,
+            minlength: 10,
+            maxlength: 11,
+            regex: "[0-9]+",
+        },
+        personalEmail: {
+            required: true,
+        },
+    },
+    messages: {
+        firstName: "Please, enter you name",
+        phoneNumber: "Please, enter your phone number",
+        personalEmail: "Please, enter your email",
+    },
+});
+
+function valEl(el) {
+    el.validate({
+        rules: {
+            firstName: {
+                required: true,
+                regex: "[A-Za-z]{1,26}",
+            },
+            phoneNumber: {
+                required: true,
+                digits: true,
+                minlength: 10,
+                maxlength: 11,
+                regex: "[0-9]+",
+            },
+            personalEmail: {
+                required: true,
+                regex: ["@"],
+            },
+        },
+        messages: {
+            firstName: "Please, enter you name",
+            phoneNumber: "Please, enter your phone number",
+            personalEmail: "Please, enter your email",
+        },
+
+        submitHandler: function (form) {
+            var $form = $(form);
+            var $formId = $(form).attr("id");
+            switch ($formId) {
+                case "form-result":
+                    $.ajax({
+                        type: "POST",
+                        url: $form.attr("action"),
+                        data: $form.serialize(),
+                    })
+                        .done(function () {
+                            location.href = "https://google.com";
+                        })
+                        .failed(function () {
+                            console.log("something went wrong...");
+                        });
+                    break;
+                default:
+                    return null;
+            }
+        },
+    });
+}
+
+$(".main-form").each(function () {
+    valEl($(this));
+});

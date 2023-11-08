@@ -52,11 +52,33 @@ block supplies
                     p.text-center And for other business areas
     section.supplies-form.pages-padding  
         .container 
-            .row 
-                .col-12.form-title
+            .row.justify-content-center 
+                .col-8.form-wrapp
                     h3.section-title.text-center Order an estimate or send a request for cooperation
-                .col-12.modal-btn.d-flex.justify-content-center 
-                    button.open-btn Order calculation
+                    form#form-result.d-flex.flex-wrap.justify-content-between.form-gap.main-form(action="mail.php" method="post")
+                        .form-item.col-4
+                            p Your name*
+                            input(type="text" name="firstName" placeholder="Enter a name" required)
+                        .form-item.col-4
+                            p Company name:
+                            input(type="text" name="company" placeholder="")
+                        .form-item.col-4
+                            p Your phone*
+                            input(type="tel" name="phoneNumber" placeholder="+38 (___) ___-__-__" required)
+                        .form-item.col-4
+                            p E-mail:
+                            input(type="email" name="personalEmail" placeholder="" required)
+                        .form-item.col-8
+                            p Comment:
+                            input(type="text" name="comment" placeholder="")
+                        .form-btn.d-flex.justify-content-center
+                            button.open-btn(type="submit") Order Calculation
+
+
+
+
+                //- .col-12.modal-btn.d-flex.justify-content-center 
+                //-     button.open-btn Order calculation
 
 
 
