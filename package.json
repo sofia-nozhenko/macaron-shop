@@ -9,6 +9,7 @@
   "author": "",
   "license": "ISC",
   "devDependencies": {
+    "axios": "^1.6.1",
     "browser-sync": "^2.29.3",
     "gsap": "^3.12.2",
     "gulp": "^4.0.2",

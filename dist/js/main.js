@@ -138,91 +138,45 @@ offerItemsRight.forEach((item, index) => {
     });
 });
 
-// Validation
+// Fucking validation!
+document.addEventListener("DOMContentLoaded", function () {
+    const form = document.getElementById("myForm");
+    const errorMessage = document.getElementById("error-message");
 
-// Method add
-$.validator.addMethod(
-    "regex",
-    function (value, element, regexp) {
-        let regExsp = new RegExp(regexp);
-        return this.optional(element) || regExsp.test(value);
-    },
-    "please,check ypur input"
-);
+    form.addEventListener("submit", function (e) {
+        e.preventDefault();
 
-$(".main-form").validate({
-    rules: {
-        firstName: {
-            required: true,
-            regex: "[A-Za-z]{1,26}",
-        },
-        phoneNumber: {
-            required: true,
-            digits: true,
-            minlength: 10,
-            maxlength: 11,
-            regex: "[0-9]+",
-        },
-        personalEmail: {
-            required: true,
-        },
-    },
-    messages: {
-        firstName: "Please, enter you name",
-        phoneNumber: "Please, enter your phone number",
-        personalEmail: "Please, enter your email",
-    },
-});
+        // form' value
+        const name = document.getElementById("name").value;
+        const phone = document.getElementById("phone").value;
 
-function valEl(el) {
-    el.validate({
-        rules: {
-            firstName: {
-                required: true,
-                regex: "[A-Za-z]{1,26}",
-            },
-            phoneNumber: {
-                required: true,
-                digits: true,
-                minlength: 10,
-                maxlength: 11,
-                regex: "[0-9]+",
-            },
-            personalEmail: {
-                required: true,
-                regex: ["@"],
-            },
-        },
-        messages: {
-            firstName: "Please, enter you name",
-            phoneNumber: "Please, enter your phone number",
-            personalEmail: "Please, enter your email",
-        },
+        // form validation
+        if (!name || !phone) {
+            errorMessage.innerText = "Please fill in all fields.";
+            return;
+        }
 
-        submitHandler: function (form) {
-            var $form = $(form);
-            var $formId = $(form).attr("id");
-            switch ($formId) {
-                case "form-result":
-                    $.ajax({
-                        type: "POST",
-                        url: $form.attr("action"),
-                        data: $form.serialize(),
-                    })
-                        .done(function () {
-                            location.href = "https://google.com";
-                        })
-                        .failed(function () {
-                            console.log("something went wrong...");
-                        });
-                    break;
-                default:
-                    return null;
-            }
-        },
+        // clear
+        errorMessage.innerText = "";
+
+        // object for send data to server
+        const formData = {
+            name: name,
+            phone: phone,
+        };
+
+        // post with axios
+        axios
+            .post("/url", formData)
+            .then(function (response) {
+                // response from server
+                console.log(response.data);
+                // here you can display a success message or redirect the user
+            })
+            .catch(function (error) {
+                // Error from server
+                errorMessage.innerText = "Error. Please try again";
+                console.error(error);
+            });
     });
-}
-
-$(".main-form").each(function () {
-    valEl($(this));
 });

@@ -1,5 +1,7 @@
-@import url(./preloader.scss);
-@import url(./font.scss);
+@font-face {
+    font-family: "ProximaNova", sans-serif;
+    src: url(fonts/proximanova_regular.ttf);
+}
 
 /* PRELOADER */
 .preloader {
@@ -907,9 +909,4 @@ footer {
         font-weight: 400;
         font-family: $ff1;
     }
-}
-
-#message-for-user{
-    display: none;
-    
 }
