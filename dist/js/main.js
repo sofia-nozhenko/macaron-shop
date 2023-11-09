@@ -167,7 +167,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
         // post with axios
         axios
-            .post("/url", formData)
+            .post("#", formData)
             .then(function (response) {
                 // response from server
                 console.log(response.data);

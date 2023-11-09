@@ -2,9 +2,7 @@ const gulp = require("gulp"),
     browserSync = require("browser-sync").create(),
     pug = require("gulp-pug"),
     sass = require("gulp-sass")(require("sass")),
-    soursemaps = require("gulp-sourcemaps"),
-    axios = require("axios"),
-    gsap = require("gsap");
+    soursemaps = require("gulp-sourcemaps");
 
 // Directories
 
